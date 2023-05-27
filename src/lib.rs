@@ -548,14 +548,14 @@ mod error;
 mod http;
 mod macros;
 
-#[cfg(feature = "reqwest-client",feature="reqwest-client-rustls")]
+#[cfg(any(feature = "reqwest-client",feature="reqwest-client-rustls"))]
 mod reqwest;
-#[cfg(feature = "reqwest-client",feature="reqwest-client-rustls")]
+#[cfg(any(feature = "reqwest-client",feature="reqwest-client-rustls"))]
 pub use crate::reqwest::*;
 
-#[cfg(feature = "isahc-client",feature="reqwest-client-rustls")]
+#[cfg(any(feature = "isahc-client",feature="reqwest-client-rustls"))]
 mod isahc;
-#[cfg(feature = "isahc-client",feature="reqwest-client-rustls")]
+#[cfg(any(feature = "isahc-client",feature="reqwest-client-rustls"))]
 pub use crate::isahc::*;
 
 #[doc(hidden)]
