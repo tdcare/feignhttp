@@ -26,7 +26,11 @@ members = ["codegen"]
 default = ["reqwest-client"]
 
 reqwest-client = ["reqwest"]
+reqwest-client-rustls=["reqwest/rustls-tls"]
+
 isahc-client = ["isahc"]
+isahc-client-rustls = ["isahc/rustls-tls"]
+
 
 json = ["serde_json", "reqwest/json", "isahc/json"]
 
