@@ -4,9 +4,9 @@ version = "0.1.0"
 authors = ["dxx <dx1898@foxmail.com>"]
 edition = "2021"
 description = "FeignHTTP macro support"
-documentation = "https://docs.rs/feignhttp"
-homepage = "https://github.com/dxx/feignhttp"
-repository = "https://github.com/dxx/feignhttp"
+documentation = "https://docs.rs/feignhttp-rs"
+homepage = "https://github.com/tdcare/feignhttp"
+repository = "https://github.com/tdcare/feignhttp"
 readme = "README.md"
 license = "MIT"
 
