@@ -18,7 +18,7 @@ async fn anything(#[body] data: Data) -> feignhttp_rs::Result<String> {}
 // cargo run --example log --features log.
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    std::env::set_var("RUST_LOG", "feignhttp=debug");
+    std::env::set_var("RUST_LOG", "feignhttp_rs=debug");
     env_logger::init();
 
     #[cfg(feature = "json")]

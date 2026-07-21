@@ -152,7 +152,7 @@
 //! ) -> feignhttp_rs::Result<String> {}
 //! ```
 //!
-//! See [here](https://github.com/dxx/feignhttp/blob/HEAD/examples/url.rs) for more examples.
+//! See [here](https://github.com/tdcare/feignhttp/blob/HEAD/examples/url.rs) for more examples.
 //!
 //! ## Query Parameters
 //!
@@ -248,7 +248,7 @@
 //! ```
 //!
 //! Before send request, a header `content-type: application/x-www-form-urlencoded` will be added automatically.
-//! See [here](https://github.com/dxx/feignhttp/blob/HEAD/examples/form.rs) for more examples.
+//! See [here](https://github.com/tdcare/feignhttp/blob/HEAD/examples/form.rs) for more examples.
 //!
 //! ## JSON
 //!
@@ -338,7 +338,7 @@
 //! }
 //! ```
 //! Before send request, a header `content-type: application/json` will be added automatically.
-//! See [here](https://github.com/dxx/feignhttp/blob/HEAD/examples/json.rs) for a complete example.
+//! See [here](https://github.com/tdcare/feignhttp/blob/HEAD/examples/json.rs) for a complete example.
 //!
 //! ## Using Structure
 //!
@@ -382,7 +382,7 @@
 //! }
 //! ```
 //!
-//! See [here](https://github.com/dxx/feignhttp/blob/HEAD/examples/struct.rs) for a complete example.
+//! See [here](https://github.com/tdcare/feignhttp/blob/HEAD/examples/struct.rs) for a complete example.
 //!
 //! ## Timeout Configuration
 //!
@@ -442,9 +442,9 @@
 //!
 //! ## Error Handling
 //!
-//! FeignHTTP use [`feignhttp_rs::Result`](https://docs.rs/feignhttp/latest/feignhttp/type.Result.html) to receive return result. The error is
-//! [`Error`](https://docs.rs/feignhttp/latest/feignhttp/struct.Error.html) struct which has some error kinds and some useful methods.
-//! [`ErrorKind`](https://docs.rs/feignhttp/latest/feignhttp/enum.ErrorKind.html) is used to indicate an error type.
+//! FeignHTTP use [`feignhttp_rs::Result`](https://docs.rs/feignhttp-rs/latest/feignhttp_rs/type.Result.html) to receive return result. The error is
+//! [`Error`](https://docs.rs/feignhttp-rs/latest/feignhttp_rs/struct.Error.html) struct which has some error kinds and some useful methods.
+//! [`ErrorKind`](https://docs.rs/feignhttp-rs/latest/feignhttp_rs/enum.ErrorKind.html) is used to indicate an error type.
 //!
 //! Url is incorrect:
 //!
@@ -525,7 +525,7 @@
 //! }
 //! ```
 //! The status is [StatusCode](https://docs.rs/http/latest/http/status/struct.StatusCode.html) struct that supply by [http](https://crates.io/crates/http) crate.
-//! For more examples, see [here](https://github.com/dxx/feignhttp/blob/HEAD/examples/error.rs).
+//! For more examples, see [here](https://github.com/tdcare/feignhttp/blob/HEAD/examples/error.rs).
 //!
 //! ## Logs
 //!
