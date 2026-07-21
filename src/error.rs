@@ -104,6 +104,12 @@ impl StdError for Error {
     }
 }
 
+impl Default for Error {
+    fn default() -> Self {
+        Error::new(ErrorKind::Build, None::<Error>)
+    }
+}
+
 impl fmt::Debug for Error {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         let mut builder = f.debug_struct("feignhttp_rs::Error");
