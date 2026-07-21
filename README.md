@@ -13,7 +13,22 @@ FeignHTTP is a declarative HTTP client. Based on rust macros.
 * Asynchronous request
 * Configurable timeout settings
 * Supports form, plain text and JSON
+* **Built-in rustls TLS support** — no OpenSSL dependency required
 * Selectable HTTP backends ([reqwest](https://github.com/seanmonstar/reqwest) or [isahc](https://github.com/sagebind/isahc))
+
+## Differences from upstream
+
+This project is a fork of [dxx/feignhttp](https://github.com/dxx/feignhttp) (v0.5.x). Key differences:
+
+| Aspect | feignhttp-rs (this) | Upstream feignhttp (v0.6.x) |
+|--------|---------------------|------------------------------|
+| **Crate name** | `feignhttp-rs` | `feignhttp` |
+| **rustls TLS** | ✅ Built-in (`reqwest-client-rustls`, `isahc-client-rustls`) | ❌ OpenSSL only |
+| **reqwest** | v0.11 (stable) | v0.13 (latest) |
+| **isahc** | v1.7 (stable) | v2.0 (latest) |
+| **http crate** | v0.2 | v1.1 |
+| **Feature style** | Flat: `reqwest-client`, `isahc-client`, plus rustls variants | Matrix: backend × format × TLS |
+| **Error Default** | ✅ `Error` implements `Default` | ❌ Not implemented |
 
 ## Usage
 
