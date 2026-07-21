@@ -1,7 +1,7 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 
-use feignhttp::{get, post};
+use feignhttp_rs::{get, post};
 
 use serde::{Deserialize, Serialize};
 
@@ -27,7 +27,7 @@ async fn issues(
     #[path] repo: &str,
     page: u32,
     per_page: u32,
-) -> feignhttp::Result<Vec<IssueItem>> {}
+) -> feignhttp_rs::Result<Vec<IssueItem>> {}
 
 
 #[derive(Debug, Serialize)]
@@ -38,7 +38,7 @@ struct User {
 
 #[cfg(feature = "json")]
 #[post(url = "https://httpbin.org/anything")]
-async fn post_user(#[body] user: User) -> feignhttp::Result<String> {}
+async fn post_user(#[body] user: User) -> feignhttp_rs::Result<String> {}
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {

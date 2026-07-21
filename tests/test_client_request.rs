@@ -1,6 +1,6 @@
 #![allow(unused_imports)]
 
-use feignhttp::{map, HttpClient, HttpConfig};
+use feignhttp_rs::{map, HttpClient, HttpConfig};
 
 use mockito::{mock, server_address, Matcher};
 use serde::Serialize;

@@ -1,7 +1,7 @@
-use feignhttp::get;
+use feignhttp_rs::get;
 
 #[get(url = "http://site_dne.com", connect_timeout = 3000)]
-async fn connect_timeout() -> feignhttp::Result<String> {}
+async fn connect_timeout() -> feignhttp_rs::Result<String> {}
 
 #[tokio::test]
 #[should_panic]
@@ -10,7 +10,7 @@ async fn test_connect_timeout() {
 }
 
 #[get(url = "https://httpbin.org/delay/5", timeout = 3000)]
-async fn timeout() -> feignhttp::Result<String> {}
+async fn timeout() -> feignhttp_rs::Result<String> {}
 
 #[tokio::test]
 #[should_panic]
@@ -19,7 +19,7 @@ async fn test_timeout() {
 }
 
 #[get(url = "https://httpbin.org/delay/3", timeout = "{time}")]
-async fn dynamic_timeout(#[param] time: u16) -> feignhttp::Result<String> {}
+async fn dynamic_timeout(#[param] time: u16) -> feignhttp_rs::Result<String> {}
 
 #[tokio::test]
 #[should_panic]

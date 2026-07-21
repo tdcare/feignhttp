@@ -48,19 +48,19 @@
 //! tokio = { version = "1", features = ["full"] }
 //! ```
 //!
-//! Add `feignhttp` in your `Cargo.toml` and use default feature:
+//! Add `feignhttp-rs` in your `Cargo.toml` and use default feature:
 //!
 //! ```toml
-//! feignhttp = { version = "0.5" }
+//! feignhttp-rs = "0.5"
 //! ```
 //!
 //! Then add the following code:
 //!
 //! ```rust, no_run
-//! use feignhttp::get;
+//! use feignhttp_rs::get;
 //!
 //! #[get("https://api.github.com")]
-//! async fn github() -> feignhttp::Result<String> {}
+//! async fn github() -> feignhttp_rs::Result<String> {}
 //!
 //! #[tokio::main]
 //! async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -71,13 +71,13 @@
 //! }
 //! ```
 //!
-//! The `get` attribute macro specifies get request, `feignhttp::Result<String>` specifies the return result.
+//! The `get` attribute macro specifies get request, `feignhttp_rs::Result<String>` specifies the return result.
 //! It will send get request to `https://api.github.com` and receive a plain text body.
 //!
 //! Using non-default HTTP backend:
 //!
 //! ```toml
-//! feignhttp = { version = "0.5", default-features = false, features = ["isahc-client"] }
+//! feignhttp-rs = { version = "0.5", default-features = false, features = ["isahc-client"] }
 //! ```
 //!
 //! The `default-features = false` option disable default reqwest.
@@ -88,10 +88,10 @@
 //! a request body.
 //!
 //! ```rust, no_run
-//! use feignhttp::post;
+//! use feignhttp_rs::post;
 //!
 //! #[post("https://httpbin.org/anything")]
-//! async fn post_data(#[body] text: String) -> feignhttp::Result<String> {}
+//! async fn post_data(#[body] text: String) -> feignhttp_rs::Result<String> {}
 //! ```
 //!
 //! The `#[body]` mark a request body. Function parameter `text` is a String type, it will put in the request body as plain text.
@@ -102,13 +102,13 @@
 //! Using `path` to specify path value:
 //!
 //! ```rust, no_run
-//! use feignhttp::get;
+//! use feignhttp_rs::get;
 //!
 //! #[get("https://api.github.com/repos/{owner}/{repo}")]
 //! async fn repository(
 //!     #[path("owner")] user: &str,
 //!     #[path] repo: String,
-//! ) -> feignhttp::Result<String> {}
+//! ) -> feignhttp_rs::Result<String> {}
 //!
 //! #[tokio::main]
 //! async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -127,7 +127,7 @@
 //! You can use constant to maintain all urls of request:
 //!
 //! ```rust, no_run
-//! use feignhttp::get;
+//! use feignhttp_rs::get;
 //!
 //! const GITHUB_URL: &str = "https://api.github.com";
 //!
@@ -135,13 +135,13 @@
 //! async fn languages(
 //!     #[path] owner: &str,
 //!     #[path] repo: &str,
-//! ) -> feignhttp::Result<String> {}
+//! ) -> feignhttp_rs::Result<String> {}
 //! ```
 //!
 //! Url constant must be the first metadata in get attribute macro. You also can specify metadata key:
 //!
 //! ```rust, no_run
-//! use feignhttp::get;
+//! use feignhttp_rs::get;
 //!
 //! const GITHUB_URL: &str = "https://api.github.com";
 //!
@@ -149,7 +149,7 @@
 //! async fn languages(
 //!     #[path] owner: &str,
 //!     #[path] repo: &str,
-//! ) -> feignhttp::Result<String> {}
+//! ) -> feignhttp_rs::Result<String> {}
 //! ```
 //!
 //! See [here](https://github.com/dxx/feignhttp/blob/HEAD/examples/url.rs) for more examples.
@@ -159,14 +159,14 @@
 //! Using `query` to specify query parameter:
 //!
 //! ```rust, no_run
-//! use feignhttp::get;
+//! use feignhttp_rs::get;
 //!
 //! #[get("https://api.github.com/repos/{owner}/{repo}/contributors")]
 //! async fn contributors(
 //!     #[path] owner: &str,
 //!     #[path] repo: &str,
 //!     #[query] page: u32,
-//! ) -> feignhttp::Result<String> {}
+//! ) -> feignhttp_rs::Result<String> {}
 //!
 //! #[tokio::main]
 //! async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -186,14 +186,14 @@
 //! Using `header` to specify request header:
 //!
 //! ```rust, no_run
-//! use feignhttp::get;
+//! use feignhttp_rs::get;
 //!
 //! #[get("https://api.github.com/repos/dxx/feignhttp/commits")]
 //! async fn commits(
 //!     #[header] accept: &str,
 //!     #[query] page: u32,
 //!     #[query] per_page: u32,
-//! ) -> feignhttp::Result<String> {}
+//! ) -> feignhttp_rs::Result<String> {}
 //!
 //! #[tokio::main]
 //! async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -209,10 +209,10 @@
 //! You also can use `headers` key to specify one or more headers in `get` attribute:
 //!
 //! ```rust, no_run
-//! use feignhttp::get;
+//! use feignhttp_rs::get;
 //!
 //! #[get("https://httpbin.org/headers", headers = "key1: value1; key2: value2")]
-//! async fn headers() -> feignhttp::Result<String> {}
+//! async fn headers() -> feignhttp_rs::Result<String> {}
 //!
 //! #[tokio::main]
 //! async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -230,13 +230,13 @@
 //! Using `form` to specify form parameter:
 //!
 //! ```rust, no_run
-//! use feignhttp::post;
+//! use feignhttp_rs::post;
 //!
 //! #[post(url = "https://httpbin.org/anything")]
 //! async fn post_user(
 //!     #[form] id: i32,
 //!     #[form] name: &str,
-//! ) -> feignhttp::Result<String> {}
+//! ) -> feignhttp_rs::Result<String> {}
 //!
 //! #[tokio::main]
 //! async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -260,13 +260,13 @@
 //!
 //! You also need enable `json` feature:
 //! ```toml
-//! feignhttp = { version = "<version>", features = ["json"] }
+//! feignhttp-rs = { version = "<version>", features = ["json"] }
 //! ```
 //!
 //! Here is an example of getting json:
 //!
 //! ```rust, no_run
-//! use feignhttp::get;
+//! use feignhttp_rs::get;
 //! use serde::Deserialize;
 //!
 //! // Deserialize: Specifies deserialization
@@ -290,7 +290,7 @@
 //!     #[path] repo: &str,
 //!     page: u32,
 //!     per_page: u32,
-//! ) -> feignhttp::Result<Vec<IssueItem>> {}
+//! ) -> feignhttp_rs::Result<Vec<IssueItem>> {}
 //!
 //! #[tokio::main]
 //! async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -309,7 +309,7 @@
 //! Send a json request:
 //!
 //! ```rust, no_run
-//! use feignhttp::post;
+//! use feignhttp_rs::post;
 //! use serde::Serialize;
 //!
 //! #[derive(Debug, Serialize)]
@@ -320,7 +320,7 @@
 //!
 //! # #[cfg(feature = "json")]
 //! #[post(url = "https://httpbin.org/anything")]
-//! async fn post_user(#[body] user: User) -> feignhttp::Result<String> {}
+//! async fn post_user(#[body] user: User) -> feignhttp_rs::Result<String> {}
 //!
 //! #[tokio::main]
 //! async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -345,7 +345,7 @@
 //! Structure is a good way to manage requests. Define a structure and then define a large number of request methods：
 //!
 //! ```rust, no_run
-//! use feignhttp::{feign, Feign};
+//! use feignhttp_rs::{feign, Feign};
 //!
 //! #[derive(Feign)]
 //! struct Github {
@@ -366,10 +366,10 @@
 //! impl Github {
 //!     // The method must have a self argument.
 //!     #[get]
-//!     async fn home(&self) -> feignhttp::Result<String> {}
+//!     async fn home(&self) -> feignhttp_rs::Result<String> {}
 //! 
 //!     #[get(path = "", headers = "Accept: application/json")]
-//!     async fn repository(&self) -> feignhttp::Result<String> {}
+//!     async fn repository(&self) -> feignhttp_rs::Result<String> {}
 //! 
 //!     #[get("/commits")]
 //!     async fn commits(
@@ -377,7 +377,7 @@
 //!         #[header] accept: &str,
 //!         #[query] page: u32,
 //!         #[query] per_page: u32,
-//!     ) -> feignhttp::Result<String> {}
+//!     ) -> feignhttp_rs::Result<String> {}
 //! 
 //! }
 //! ```
@@ -391,19 +391,19 @@
 //! Connect timeout:
 //!
 //! ```rust, no_run
-//! use feignhttp::get;
+//! use feignhttp_rs::get;
 //!
 //! #[get(url = "http://site_dne.com", connect_timeout = 3000)]
-//! async fn connect_timeout() -> feignhttp::Result<String> {}
+//! async fn connect_timeout() -> feignhttp_rs::Result<String> {}
 //! ```
 //!
 //! Read timeout:
 //!
 //! ```rust, no_run
-//! use feignhttp::get;
+//! use feignhttp_rs::get;
 //!
 //! #[get(url = "https://httpbin.org/delay/5", timeout = 3000)]
-//! async fn timeout() -> feignhttp::Result<String> {}
+//! async fn timeout() -> feignhttp_rs::Result<String> {}
 //! ```
 //!
 //! ## Params
@@ -412,10 +412,10 @@
 //! `param` to specify a value that used as a dynamic replacement.
 //!
 //! ```rust, no_run
-//! use feignhttp::get;
+//! use feignhttp_rs::get;
 //!
 //! #[get(url = "https://httpbin.org/delay/5", timeout = "{time}")]
-//! async fn timeout(#[param] time: u16) -> feignhttp::Result<String> {}
+//! async fn timeout(#[param] time: u16) -> feignhttp_rs::Result<String> {}
 //! ```
 //!
 //! When call `timeout` function, the time's value will replace the `{time}`.
@@ -423,10 +423,10 @@
 //! Another example is replace headers:
 //!
 //! ```rust, no_run
-//! use feignhttp::get;
+//! use feignhttp_rs::get;
 //!
 //! #[get("https://httpbin.org/headers", headers = "token: {token}")]
-//! async fn headers(#[param] token: &str) -> feignhttp::Result<String> {}
+//! async fn headers(#[param] token: &str) -> feignhttp_rs::Result<String> {}
 //!
 //! #[tokio::main]
 //! async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -442,17 +442,17 @@
 //!
 //! ## Error Handling
 //!
-//! FeignHTTP use [`feignhttp::Result`](https://docs.rs/feignhttp/latest/feignhttp/type.Result.html) to receive return result. The error is
+//! FeignHTTP use [`feignhttp_rs::Result`](https://docs.rs/feignhttp/latest/feignhttp/type.Result.html) to receive return result. The error is
 //! [`Error`](https://docs.rs/feignhttp/latest/feignhttp/struct.Error.html) struct which has some error kinds and some useful methods.
 //! [`ErrorKind`](https://docs.rs/feignhttp/latest/feignhttp/enum.ErrorKind.html) is used to indicate an error type.
 //!
 //! Url is incorrect:
 //!
 //! ```rust, no_run
-//! use feignhttp::get;
+//! use feignhttp_rs::get;
 //!
 //! #[get("httpbin.org/anything")]
-//! async fn url_error() -> feignhttp::Result<()> {}
+//! async fn url_error() -> feignhttp_rs::Result<()> {}
 //!
 //! #[tokio::main]
 //! async fn main() {
@@ -471,10 +471,10 @@
 //! Parse config error:
 //!
 //! ```rust, no_run
-//! use feignhttp::get;
+//! use feignhttp_rs::get;
 //!
 //! #[get(url = "https://httpbin.org/delay/3", timeout = "abc")]
-//! async fn config_error() -> feignhttp::Result<()> {}
+//! async fn config_error() -> feignhttp_rs::Result<()> {}
 //!
 //! #[tokio::main]
 //! async fn main() {
@@ -495,10 +495,10 @@
 //! The following is an example of handling through HTTP status:
 //!
 //! ```rust, no_run
-//! use feignhttp::{get, ErrorKind};
+//! use feignhttp_rs::{get, ErrorKind};
 //!
 //! #[get(url = "https://httpbin.org/123")]
-//! async fn status_error() -> feignhttp::Result<()> {}
+//! async fn status_error() -> feignhttp_rs::Result<()> {}
 //!
 //! #[tokio::main]
 //! async fn main() {
@@ -561,7 +561,7 @@ pub use crate::isahc::*;
 #[doc(hidden)]
 pub mod util;
 
-pub use feignhttp_codegen::*;
+pub use feignhttp_rs_codegen::*;
 use std::collections::HashMap;
 
 pub use crate::error::{Error, ErrorKind, Result};

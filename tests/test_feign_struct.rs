@@ -1,4 +1,4 @@
-use feignhttp::{feign, Feign};
+use feignhttp_rs::{feign, Feign};
 
 use mockito::{mock, Matcher};
 
@@ -10,7 +10,7 @@ pub struct Feign;
 #[feign(url = URL)]
 impl Feign {
     #[get("/users/{user}")]
-    async fn user(&self, #[path] user: &str) -> feignhttp::Result<String> {}
+    async fn user(&self, #[path] user: &str) -> feignhttp_rs::Result<String> {}
 }
 
 #[tokio::test]
@@ -31,10 +31,10 @@ struct FeignClient {
 #[feign(url = "http://localhost:1234", headers = "accept: {accept}")]
 impl FeignClient {
     #[get]
-    async fn home(&self) -> feignhttp::Result<String> {}
+    async fn home(&self) -> feignhttp_rs::Result<String> {}
 
     #[get("/repos", headers = "accept: application/json")]
-    async fn repository(&self) -> feignhttp::Result<String> {}
+    async fn repository(&self) -> feignhttp_rs::Result<String> {}
 }
 
 #[tokio::test]

@@ -1,4 +1,4 @@
-use feignhttp::{feign, Feign};
+use feignhttp_rs::{feign, Feign};
 
 #[derive(Feign)]
 struct Github {
@@ -19,13 +19,13 @@ struct Github {
 impl Github {
     // The method must have a self argument.
     #[get]
-    async fn home(&self) -> feignhttp::Result<String> {}
+    async fn home(&self) -> feignhttp_rs::Result<String> {}
 
     #[get(path = "", headers = "Accept: application/json")]
-    async fn repository(&self) -> feignhttp::Result<String> {}
+    async fn repository(&self) -> feignhttp_rs::Result<String> {}
 
     #[get(path = "/contributors")]
-    async fn contributors(&self, #[query] page: u32) -> feignhttp::Result<String> {}
+    async fn contributors(&self, #[query] page: u32) -> feignhttp_rs::Result<String> {}
 
     #[get("/commits")]
     async fn commits(
@@ -33,11 +33,11 @@ impl Github {
         #[header] accept: &str,
         #[query] page: u32,
         #[query] per_page: u32,
-    ) -> feignhttp::Result<String> {
+    ) -> feignhttp_rs::Result<String> {
     }
 
     #[get(path = "/languages")]
-    async fn languages(&self) -> feignhttp::Result<String> {}
+    async fn languages(&self) -> feignhttp_rs::Result<String> {}
 }
 
 #[tokio::main]

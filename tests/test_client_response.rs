@@ -1,7 +1,7 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 
-use feignhttp::{HttpClient, HttpResponse};
+use feignhttp_rs::{HttpClient, HttpResponse};
 
 use mockito::{mock, server_address};
 use serde::Deserialize;

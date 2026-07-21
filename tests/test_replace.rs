@@ -1,4 +1,4 @@
-use feignhttp::util::replace;
+use feignhttp_rs::util::replace;
 use std::collections::HashMap;
 
 #[test]

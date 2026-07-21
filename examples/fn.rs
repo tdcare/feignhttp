@@ -1,10 +1,10 @@
-use feignhttp::{get, post};
+use feignhttp_rs::{get, post};
 
 #[get("https://api.github.com")]
-async fn github() -> feignhttp::Result<String> {}
+async fn github() -> feignhttp_rs::Result<String> {}
 
 #[post("https://httpbin.org/post")]
-async fn post() -> feignhttp::Result<String> {}
+async fn post() -> feignhttp_rs::Result<String> {}
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {

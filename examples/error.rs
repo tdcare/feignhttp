@@ -1,16 +1,16 @@
-use feignhttp::{get, ErrorKind};
+use feignhttp_rs::{get, ErrorKind};
 
 #[get("httpbin.org/anything")]
-async fn url_error() -> feignhttp::Result<()> {}
+async fn url_error() -> feignhttp_rs::Result<()> {}
 
 #[get(url = "https://httpbin.org/delay/3", timeout = "abc")]
-async fn config_error() -> feignhttp::Result<()> {}
+async fn config_error() -> feignhttp_rs::Result<()> {}
 
 #[get(url = "https://httpbin.org/delay/3", timeout = 2000)]
-async fn timeout_error() -> feignhttp::Result<()> {}
+async fn timeout_error() -> feignhttp_rs::Result<()> {}
 
 #[get(url = "https://httpbin.org/123")]
-async fn status_error() -> feignhttp::Result<()> {}
+async fn status_error() -> feignhttp_rs::Result<()> {}
 
 
 #[derive(Debug, serde::Deserialize, serde::Serialize)]
@@ -20,7 +20,7 @@ struct User {
 
 #[cfg(feature = "json")]
 #[get(url = "https://httpbin.org/anything")]
-async fn decode_error() -> feignhttp::Result<User> {}
+async fn decode_error() -> feignhttp_rs::Result<User> {}
 
 #[tokio::main]
 async fn main() {

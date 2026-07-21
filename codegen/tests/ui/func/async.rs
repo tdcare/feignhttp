@@ -1,4 +1,4 @@
-use feignhttp_codegen::get;
+use feignhttp_rs_codegen::get;
 
 // error: only support async fn
 //    |  pub fn send_get() {}

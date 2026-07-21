@@ -3,13 +3,13 @@ use std::{
     path::PathBuf,
 };
 
-use feignhttp::{get, post};
+use feignhttp_rs::{get, post};
 
 #[get("https://www.rust-lang.org/static/images/rust-logo-blk.svg")]
-async fn get_image() -> feignhttp::Result<Vec<u8>> {}
+async fn get_image() -> feignhttp_rs::Result<Vec<u8>> {}
 
 #[post("https://httpbin.org/anything")]
-async fn post_image(#[body] data: Vec<u8>) -> feignhttp::Result<String> {}
+async fn post_image(#[body] data: Vec<u8>) -> feignhttp_rs::Result<String> {}
 
 
 fn cargo_dir() -> std::result::Result<String, std::env::VarError> {

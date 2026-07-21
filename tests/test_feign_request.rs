@@ -1,10 +1,10 @@
-use feignhttp::{get, post};
+use feignhttp_rs::{get, post};
 
 use mockito::{mock, Matcher};
 use serde::Serialize;
 
 #[get("http://localhost:1234/get")]
-async fn get() -> feignhttp::Result<String> {}
+async fn get() -> feignhttp_rs::Result<String> {}
 
 #[tokio::test]
 async fn test_get() {
@@ -14,7 +14,7 @@ async fn test_get() {
 }
 
 #[post(url = "http://localhost:1234/post")]
-async fn post() -> feignhttp::Result<String> {}
+async fn post() -> feignhttp_rs::Result<String> {}
 
 #[tokio::test]
 async fn test_post() {
@@ -31,7 +31,7 @@ async fn post_header(
     #[header] auth: String, // Overried `auth: password`.
     #[header("name")] username: &str,
     #[param] pwd: &str,
-) -> feignhttp::Result<String> {
+) -> feignhttp_rs::Result<String> {
 }
 
 #[tokio::test]
@@ -48,7 +48,7 @@ async fn test_header() {
 }
 
 #[post(url = "http://localhost:1234/post_query")]
-async fn post_query(#[query] id: u32, #[query("name")] name: String) -> feignhttp::Result<String> {}
+async fn post_query(#[query] id: u32, #[query("name")] name: String) -> feignhttp_rs::Result<String> {}
 
 #[tokio::test]
 async fn test_query() {
@@ -61,7 +61,7 @@ async fn test_query() {
 }
 
 #[post(url = "http://localhost:1234/post_form")]
-async fn post_form(#[form] id: i32, #[form("name")] name: String) -> feignhttp::Result<String> {}
+async fn post_form(#[form] id: i32, #[form("name")] name: String) -> feignhttp_rs::Result<String> {}
 
 #[tokio::test]
 async fn test_send_form() {
@@ -74,7 +74,7 @@ async fn test_send_form() {
 }
 
 #[post(url = "http://localhost:1234/post_text")]
-async fn post_text(#[body] text: String) -> feignhttp::Result<String> {}
+async fn post_text(#[body] text: String) -> feignhttp_rs::Result<String> {}
 
 #[tokio::test]
 async fn test_send_text() {
@@ -94,7 +94,7 @@ struct User {
 
 #[cfg(feature = "json")]
 #[post(url = "http://localhost:1234/post_json")]
-async fn post_json(#[body] user: User) -> feignhttp::Result<String> {}
+async fn post_json(#[body] user: User) -> feignhttp_rs::Result<String> {}
 
 #[tokio::test]
 async fn test_send_json() {
@@ -114,7 +114,7 @@ async fn test_send_json() {
 }
 
 #[post(url = "http://localhost:1234/post_vec")]
-async fn post_data(#[body] data: Vec<u8>) -> feignhttp::Result<String> {}
+async fn post_data(#[body] data: Vec<u8>) -> feignhttp_rs::Result<String> {}
 
 #[tokio::test]
 async fn test_send_vec() {

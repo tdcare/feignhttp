@@ -1,4 +1,4 @@
-use feignhttp_codegen::post;
+use feignhttp_rs_codegen::post;
 
 // error: request must have only one of body or form
 //    |  pub async fn send_post(#[body] b: S, #[form] f: S) -> Result<String> {}

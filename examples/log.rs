@@ -1,6 +1,6 @@
 #![allow(unused_imports)]
 
-use feignhttp::post;
+use feignhttp_rs::post;
 
 use serde::Serialize;
 
@@ -12,7 +12,7 @@ struct Data {
 
 #[cfg(feature = "json")]
 #[post("https://httpbin.org/anything")]
-async fn anything(#[body] data: Data) -> feignhttp::Result<String> {}
+async fn anything(#[body] data: Data) -> feignhttp_rs::Result<String> {}
 
 // Specify features = ["log"] in Cargo.toml to enable log feature.
 // cargo run --example log --features log.

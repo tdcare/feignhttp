@@ -237,9 +237,9 @@ pub fn fn_impl(
 
     let stream = quote! {
         #vis #sig {
-            use feignhttp::FeignClient as _;
+            use feignhttp_rs::FeignClient as _;
             use std::collections::HashMap;
-            use feignhttp::{HttpClient, HttpConfig, HttpResponse, util};
+            use feignhttp_rs::{HttpClient, HttpConfig, HttpResponse, util};
             use std::borrow::Cow;
 
             let mut param_map: HashMap<&str, String> = #param_map;

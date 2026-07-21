@@ -1,10 +1,10 @@
-use feignhttp::get;
+use feignhttp_rs::get;
 
 #[get("https://api.github.com")]
-pub async fn get() -> feignhttp::Result<String> {}
+pub async fn get() -> feignhttp_rs::Result<String> {}
 
 #[get("https://api.github.com", path = "/abc")]
-pub async fn get_not_found() -> feignhttp::Result<String> {}
+pub async fn get_not_found() -> feignhttp_rs::Result<String> {}
 
 #[tokio::test]
 async fn test_fn() {

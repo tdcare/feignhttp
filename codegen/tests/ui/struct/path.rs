@@ -1,4 +1,4 @@
-use feignhttp_codegen::feign;
+use feignhttp_rs_codegen::feign;
 
 // error: metadata path not specified or must be the first
 //    |  #[get(aaa = "/aaa")]

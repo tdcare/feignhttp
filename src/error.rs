@@ -106,7 +106,7 @@ impl StdError for Error {
 
 impl fmt::Debug for Error {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        let mut builder = f.debug_struct("feignhttp::Error");
+        let mut builder = f.debug_struct("feignhttp_rs::Error");
 
         builder.field("kind", &self.inner.kind);
 

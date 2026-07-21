@@ -1,4 +1,4 @@
-use feignhttp::get;
+use feignhttp_rs::get;
 
 // Using `#[query]` to specify query parameter.
 #[get("https://api.github.com/repos/{owner}/{repo}/contributors")]
@@ -6,20 +6,20 @@ async fn contributors(
     #[path] owner: &str,
     #[path] repo: &str,
     #[query] page: u32, // `#[query]` can also be removed.
-) -> feignhttp::Result<String> {
+) -> feignhttp_rs::Result<String> {
 }
 
 #[get("https://httpbin.org/anything")]
-async fn anything(#[query] id: &[i32], #[query] name: Vec<&str>) -> feignhttp::Result<String> {}
+async fn anything(#[query] id: &[i32], #[query] name: Vec<&str>) -> feignhttp_rs::Result<String> {}
 
 #[get("https://httpbin.org/anything")]
 async fn anything_vec(
     #[query] id: &[i32],
     #[query] name: &Vec<String>,
-) -> feignhttp::Result<String> {
+) -> feignhttp_rs::Result<String> {
 }
 
-use feignhttp::{feign, Feign};
+use feignhttp_rs::{feign, Feign};
 
 #[derive(Feign)]
 struct NameQuery<'a> {
@@ -30,7 +30,7 @@ struct NameQuery<'a> {
 #[feign(url = "https://httpbin.org/anything")]
 impl<'a> NameQuery<'_> {
     #[get]
-    async fn anything_name(&self) -> feignhttp::Result<String> {}
+    async fn anything_name(&self) -> feignhttp_rs::Result<String> {}
 }
 
 #[tokio::main]

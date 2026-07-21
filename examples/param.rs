@@ -1,16 +1,16 @@
-use feignhttp::{feign, get, Feign};
+use feignhttp_rs::{feign, get, Feign};
 
 #[get("https://httpbin.org/headers", headers = "token: {token}")]
-async fn headers(#[param] token: &str) -> feignhttp::Result<String> {}
+async fn headers(#[param] token: &str) -> feignhttp_rs::Result<String> {}
 
 #[get(url = "https://httpbin.org/delay/5", timeout = "{time}")]
-async fn timeout(#[param] time: u16) -> feignhttp::Result<String> {}
+async fn timeout(#[param] time: u16) -> feignhttp_rs::Result<String> {}
 
 #[get(url = "https://httpbin.org/delay/{delay_time}", timeout = "{time}")]
 async fn dynamic_timeout(
     #[path] delay_time: u8, // Replace `{delay_time}` in url.
     #[param] time: u16,     // Replace `{time}`.
-) -> feignhttp::Result<String> {
+) -> feignhttp_rs::Result<String> {
 }
 
 #[derive(Feign)]
@@ -22,14 +22,14 @@ impl Http {
     async fn timeout(
         &self,
         #[param("timeout")] time: u16, // Replace `{timeout}` in feign attribute.
-    ) -> feignhttp::Result<String> {
+    ) -> feignhttp_rs::Result<String> {
     }
 
     #[get(path = "", timeout = "{time}")] // Override timeout in feign attribute.
     async fn override_timeout(
         &self,
         #[param(name = "time")] time: &str, // Must be a type that can be converted to timeout.
-    ) -> feignhttp::Result<String> {
+    ) -> feignhttp_rs::Result<String> {
     }
 }
 

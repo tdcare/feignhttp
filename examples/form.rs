@@ -1,4 +1,4 @@
-use feignhttp::post;
+use feignhttp_rs::post;
 
 use serde::Serialize;
 
@@ -10,10 +10,10 @@ struct User {
 }
 
 #[post(url = "https://httpbin.org/anything")]
-async fn post_user(#[form] id: i32, #[form] name: &str) -> feignhttp::Result<String> {}
+async fn post_user(#[form] id: i32, #[form] name: &str) -> feignhttp_rs::Result<String> {}
 
 #[post(url = "https://httpbin.org/anything")]
-async fn post_user2(#[form] user: User) -> feignhttp::Result<String> {}
+async fn post_user2(#[form] user: User) -> feignhttp_rs::Result<String> {}
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {

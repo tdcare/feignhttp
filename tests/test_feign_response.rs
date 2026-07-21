@@ -1,6 +1,6 @@
 #![allow(dead_code)]
 
-use feignhttp::get;
+use feignhttp_rs::get;
 
 use mockito::mock;
 use serde::Deserialize;
@@ -8,7 +8,7 @@ use serde::Deserialize;
 const TEXT_URL: &str = "http://localhost:1234";
 
 #[get(url = TEXT_URL, path = "/text")]
-async fn get_text() -> feignhttp::Result<String> {}
+async fn get_text() -> feignhttp_rs::Result<String> {}
 
 #[tokio::test]
 async fn test_get_text() {
@@ -30,7 +30,7 @@ struct User {
 
 #[cfg(feature = "json")]
 #[get(url = JSON_URL, path = "/json")]
-async fn get_json() -> feignhttp::Result<User> {}
+async fn get_json() -> feignhttp_rs::Result<User> {}
 
 #[tokio::test]
 async fn test_get_json() {
@@ -52,7 +52,7 @@ async fn test_get_json() {
 const VEC_URL: &str = "http://localhost:1234";
 
 #[get(url = VEC_URL, path = "/vec")]
-async fn get_data() -> feignhttp::Result<Vec<u8>> {}
+async fn get_data() -> feignhttp_rs::Result<Vec<u8>> {}
 
 #[tokio::test]
 async fn test_get_vec() {

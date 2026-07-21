@@ -43,7 +43,7 @@ pub fn feign_client_impl(item: TokenStream) -> TokenStream {
     match derive.data {
         syn::Data::Struct(struc) => match client_fn_impl(struc) {
             Ok(x) => quote! {
-                impl #gen ::feignhttp::FeignClient for #ident #gen {
+                impl #gen ::feignhttp_rs::FeignClient for #ident #gen {
                     #x
                 }
             }

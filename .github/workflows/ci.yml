@@ -38,7 +38,7 @@ jobs:
     
     env:
       RUST_BACKTRACE: 1
-      RUST_LOG: feignhttp=debug
+      RUST_LOG: feignhttp_rs=debug
 
     steps:
       - uses: actions/checkout@v3

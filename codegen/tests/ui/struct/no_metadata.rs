@@ -1,4 +1,4 @@
-use feignhttp_codegen::feign;
+use feignhttp_rs_codegen::feign;
 
 // error: no metadata assign
 //    |  #[feign]

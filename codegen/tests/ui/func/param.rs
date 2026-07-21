@@ -1,4 +1,4 @@
-use feignhttp_codegen::get;
+use feignhttp_rs_codegen::get;
 
 // error: unsupported param parameter: `a: Vec < String >`
 //    |  pub async fn send_get(#[param] a: Vec<String>) -> Result<String> {}

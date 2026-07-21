@@ -1,4 +1,4 @@
-use feignhttp_codegen::post;
+use feignhttp_rs_codegen::post;
 
 // error: one form parameter only supports scalar types, &str, String or struct
 //    |  pub async fn send_post(#[form] s: &String) -> Result<String> {}

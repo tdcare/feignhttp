@@ -1,4 +1,4 @@
-use feignhttp_codegen::get;
+use feignhttp_rs_codegen::get;
 
 // error: metadata url not specified
 //    |  #[get(aaa = "http://xxx")]

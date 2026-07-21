@@ -1,5 +1,5 @@
 [package]
-name = "feignhttp"
+name = "feignhttp-rs"
 version = "0.5.9"
 authors = ["dxx <dx1898@foxmail.com>"]
 edition = "2021"
@@ -35,7 +35,7 @@ isahc-client-rustls = ["isahc-client"]
 json = ["serde_json", "reqwest/json"]
 
 [dependencies]
-feignhttp-codegen = { version = "0.5", path = "codegen" }
+feignhttp-rs-codegen = { version = "0.1", path = "codegen" }
 
 async-trait = "0.1"
 http = "0.2"

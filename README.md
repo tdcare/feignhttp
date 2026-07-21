@@ -1,9 +1,9 @@
 # FeignHTTP
 
-[![crates.io](https://img.shields.io/crates/v/feignhttp.svg)](https://crates.io/crates/feignhttp)
-[![Documentation](https://docs.rs/feignhttp/badge.svg)](https://docs.rs/feignhttp)
-[![MIT licensed](https://img.shields.io/github/license/dxx/feignhttp.svg?color=blue)](./LICENSE)
-[![CI](https://github.com/dxx/feignhttp/workflows/CI/badge.svg)](https://github.com/dxx/feignhttp/actions?query=workflow%3ACI)
+[![crates.io](https://img.shields.io/crates/v/feignhttp-rs.svg)](https://crates.io/crates/feignhttp-rs)
+[![Documentation](https://docs.rs/feignhttp-rs/badge.svg)](https://docs.rs/feignhttp-rs)
+[![MIT licensed](https://img.shields.io/github/license/tdcare/feignhttp.svg?color=blue)](./LICENSE)
+[![CI](https://github.com/tdcare/feignhttp/workflows/CI/badge.svg)](https://github.com/tdcare/feignhttp/actions?query=workflow%3ACI)
 
 FeignHTTP is a declarative HTTP client. Based on rust macros.
 
@@ -35,19 +35,19 @@ tokio:
 tokio = { version = "1", features = ["full"] }
 ```
 
-Add `feignhttp` in your `Cargo.toml` and use default feature:
+Add `feignhttp-rs` in your `Cargo.toml` and use default feature:
 
 ```toml
-feignhttp = { version = "0.5" }
+feignhttp-rs = "0.5"
 ```
 
 Then add the following code:
 
 ```rust
-use feignhttp::get;
+use feignhttp_rs::get;
 
 #[get("https://api.github.com")]
-async fn github() -> feignhttp::Result<String> {}
+async fn github() -> feignhttp_rs::Result<String> {}
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -58,13 +58,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 }
 ```
 
-The `get` attribute macro specifies get request, `feignhttp::Result<String>` specifies the return result.
+The `get` attribute macro specifies get request, `feignhttp_rs::Result<String>` specifies the return result.
 It will send get request to `https://api.github.com` and receive a plain text body.
 
 Using non-default HTTP backend:
 
 ```toml
-feignhttp = { version = "0.5", default-features = false, features = ["isahc-client"] }
+feignhttp-rs = { version = "0.5", default-features = false, features = ["isahc-client"] }
 ```
 
 The `default-features = false` option disable default reqwest.
@@ -73,7 +73,7 @@ For more examples, click [here](./examples).
 
 ## Documentation
 
-Read the [documentation](https://docs.rs/feignhttp) for more details.
+Read the [documentation](https://docs.rs/feignhttp-rs) for more details.
 
 ## License
 
