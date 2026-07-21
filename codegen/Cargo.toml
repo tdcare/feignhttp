@@ -1,7 +1,7 @@
 [package]
 name = "feignhttp-rs-codegen"
 version = "0.1.0"
-authors = ["dxx <dx1898@foxmail.com>"]
+authors = ["dxx <dx1898@foxmail.com>", "tzw <tzw@tdcare.cn>"]
 edition = "2021"
 description = "FeignHTTP macro support"
 documentation = "https://docs.rs/feignhttp-rs"
